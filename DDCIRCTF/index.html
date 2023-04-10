@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="DDCIRC.png">
+    <title>電研數創一家親</title>
+</head>
+
+<body>
+    <div class="container">
+        <img id="icon" src="DDCIRC.png" />
+        <p id="question">
+        <p id="ans1"></p>
+        <p id="ans2"></p>
+        <p id="ans3"></p>
+        <p id="ans4"></p>
+        
+        <div class="wrap">
+
+            <p id="ans1"></p>
+            <button id="ans1Button">A</button>
+                
+            <p id="ans2"></p>
+            <button id="ans2Button">B</B></button>
+               
+            <p id="ans3"></p>
+            <button id="ans3Button">C</button>
+                
+            <p id="ans4"></p>
+            <button id="ans4Button">D</button>    
+
+        </div>
+    </div>
+
+    <style>
+        p{
+            display: block;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(50, 237, 203);
+        }
+        
+
+        .container>* {
+            margin: -20px;
+        }
+
+        .copybutton {
+            background-color: #ffb6dc;
+            border: none;
+            color: white;
+            padding: 27px 48px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 9px #999;
+        }
+
+        .copybutton:hover {
+            background-color: #ffbcfc;
+        }
+
+        .copybutton:active {
+            background-color: #ffb6dc;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        #flag {
+            width: 100vw;
+            text-align: center;
+            font-size: 150%;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            color: white;
+            margin-top: -4vh;
+        }
+
+        #icon {
+            height: 25%;
+        }
+    </style>
+    <script>
+        var hintText = `
+        恭喜奪旗
+        把旗子複製之後回報到discordㄅ
+        `
+        String.prototype.escape = function () {
+            var tagsToReplace = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;'
+            };
+            return this.replace(/[&<>]/g, function (tag) {
+                return tagsToReplace[tag] || tag;
+            });
+        };
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const ans1 = urlParams.get('ans1')
+        const ans2 = urlParams.get('ans2')
+        const ans3 = urlParams.get('ans3')
+        const ans4 = urlParams.get('ans4')
+
+        if (ans1 !== null) {
+            document.getElementById('ans1').innerHTML = ans1.escape();
+        }
+
+        if (ans2 !== null) {
+            document.getElementById('ans2').innerHTML = ans2.escape();
+        }
+
+        if (ans3 !== null) {
+            document.getElementById('ans3').innerHTML = ans3.escape();
+        }
+
+        if (ans4 !== null) {
+            document.getElementById('ans4').innerHTML = ans4.escape();
+        }
+        
+        const ans1Button = document.getElementById('ans1Button');
+        ans1Button.addEventListener('click', function() {
+          navigator.clipboard.writeText(ans1)
+            .then(() => {
+               console.log('已複製到剪貼簿')
+            })
+            .catch(err => {
+             console.error('複製失敗:', err)
+            })
+        });
+
+        const ans2Button = document.getElementById('ans2Button');
+        ans2Button.addEventListener('click', function() {
+          navigator.clipboard.writeText(ans2)
+            .then(() => {
+               console.log('已複製到剪貼簿')
+            })
+            .catch(err => {
+             console.error('複製失敗:', err)
+            })
+        });
+
+        const ans3Button = document.getElementById('ans3Button');
+        ans3Button.addEventListener('click', function() {
+          navigator.clipboard.writeText(ans3)
+            .then(() => {
+               console.log('已複製到剪貼簿')
+            })
+            .catch(err => {
+             console.error('複製失敗:', err)
+            })
+        });
+
+        const ans4Button = document.getElementById('ans4Button');
+        ans4Button.addEventListener('click', function() {
+          navigator.clipboard.writeText(ans4)
+            .then(() => {
+               console.log('已複製到剪貼簿')
+            })
+            .catch(err => {
+             console.error('複製失敗:', err)
+            })
+        });
+
+    </script>
+</body>
+    
+</html>
